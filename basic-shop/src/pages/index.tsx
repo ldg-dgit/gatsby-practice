@@ -1,11 +1,15 @@
+import { Link } from "gatsby";
 import * as React from "react";
+import Layout from "../components/Layout";
 
-const IndexPage = () => {
+export default function IndexPage() {
   return (
-    <div>
-      <h1>Welcome to basic shop 🤚</h1>
-    </div>
+    <Layout title='Welcome to basic shop 🤚'>
+      <div></div>
+    </Layout>
   );
-};
+}
 
-export default IndexPage;
+export function Head() {
+  return <title>basic shop</title>;
+}
