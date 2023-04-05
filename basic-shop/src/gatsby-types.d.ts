@@ -2014,6 +2014,13 @@ type BlogPostsQueryVariables = Exact<{ [key: string]: never; }>;
 
 type BlogPostsQuery = { readonly allMdx: { readonly nodes: ReadonlyArray<{ readonly excerpt: string | null, readonly frontmatter: { readonly slug: string | null, readonly author: string | null, readonly category: string | null, readonly date: string | null, readonly title: string | null } | null }> } };
 
+type PostDetailQueryVariables = Exact<{
+  frontmatter__slug: InputMaybe<Scalars['String']>;
+}>;
+
+
+type PostDetailQuery = { readonly mdx: { readonly frontmatter: { readonly author: string | null, readonly category: string | null, readonly date: string | null, readonly title: string | null, readonly slug: string | null } | null } | null };
+
 type SeoDataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
