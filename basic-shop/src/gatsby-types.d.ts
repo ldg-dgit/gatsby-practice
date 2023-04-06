@@ -3716,10 +3716,17 @@ type PostDetailQueryVariables = Exact<{
 
 type PostDetailQuery = { readonly mdx: { readonly frontmatter: { readonly author: string | null, readonly category: string | null, readonly date: string | null, readonly title: string | null, readonly slug: string | null, readonly headerImage: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null } | null };
 
+type ProductQueryVariables = Exact<{
+  id: Scalars['String'];
+}>;
+
+
+type ProductQuery = { readonly contentfulProduct: { readonly name: string | null, readonly price: number | null, readonly preview: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData | null } | null } | null };
+
 type ProductsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type ProductsQuery = { readonly allContentfulProduct: { readonly nodes: ReadonlyArray<{ readonly name: string | null, readonly price: number | null, readonly preview: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData | null } | null }> } };
+type ProductsQuery = { readonly allContentfulProduct: { readonly nodes: ReadonlyArray<{ readonly id: string, readonly name: string | null, readonly price: number | null, readonly preview: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData | null } | null }> } };
 
 type SeoDataQueryVariables = Exact<{ [key: string]: never; }>;
 

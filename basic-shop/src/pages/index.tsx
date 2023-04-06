@@ -8,13 +8,17 @@ import { graphql } from "gatsby";
 export default function IndexPage({ data }: PageProps<Queries.ProductsQuery>) {
   return (
     <Layout title='Welcome to basic shop 👋'>
-      {data.allContentfulProduct.nodes.map((product) => (
-        <article>
-          <GatsbyImage image={getImage(product.preview?.gatsbyImageData!)!} alt={product.name!} />
-          <h2>{product.name}</h2>
-          <h4>${product.price}</h4>
-        </article>
-      ))}
+      <div className='grid'>
+        {data.allContentfulProduct.nodes.map((product) => (
+          <article>
+            <GatsbyImage image={getImage(product.preview?.gatsbyImageData!)!} alt={product.name!} />
+            <Link to={`/products/${product.id}`}>
+              <h2>{product.name}</h2>
+              <h4>${product.price}</h4>
+            </Link>
+          </article>
+        ))}
+      </div>
     </Layout>
   );
 }
@@ -23,6 +27,7 @@ export const query = graphql`
   query Products {
     allContentfulProduct {
       nodes {
+        id
         name
         price
         preview {
