@@ -1,19 +1,36 @@
-import { Link } from "gatsby";
+import { Link, PageProps } from "gatsby";
 import * as React from "react";
 import Layout from "../components/Layout";
 import Seo from "../components/Seo";
-import { StaticImage } from "gatsby-plugin-image";
+import { GatsbyImage, StaticImage, getImage } from "gatsby-plugin-image";
+import { graphql } from "gatsby";
 
-export default function IndexPage() {
+export default function IndexPage({ data }: PageProps<Queries.ProductsQuery>) {
   return (
     <Layout title='Welcome to basic shop 👋'>
-      <StaticImage
-        height={500}
-        src='https://images.unsplash.com/photo-1625768376503-68d2495d78c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1450&q=80'
-        alt='Stickers on the wall'
-      />
+      {data.allContentfulProduct.nodes.map((product) => (
+        <article>
+          <GatsbyImage image={getImage(product.preview?.gatsbyImageData!)!} alt={product.name!} />
+          <h2>{product.name}</h2>
+          <h4>${product.price}</h4>
+        </article>
+      ))}
     </Layout>
   );
 }
+
+export const query = graphql`
+  query Products {
+    allContentfulProduct {
+      nodes {
+        name
+        price
+        preview {
+          gatsbyImageData(placeholder: BLURRED, height: 250)
+        }
+      }
+    }
+  }
+`;
 
 export const Head = () => <Seo title='Home' />;

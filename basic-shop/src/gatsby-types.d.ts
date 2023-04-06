@@ -48,6 +48,881 @@ type BooleanQueryOperatorInput = {
   readonly nin: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Boolean']>>>;
 };
 
+type ContentfulAsset = ContentfulReference & Node & RemoteFile & {
+  readonly children: ReadonlyArray<Node>;
+  readonly contentful_id: Scalars['String'];
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly description: Maybe<Scalars['String']>;
+  readonly file: Maybe<ContentfulAssetFile>;
+  readonly filename: Scalars['String'];
+  readonly filesize: Maybe<Scalars['Int']>;
+  /** Data used in the <GatsbyImage /> component. See https://gatsby.dev/img for more info. */
+  readonly gatsbyImage: Maybe<Scalars['GatsbyImageData']>;
+  readonly gatsbyImageData: Maybe<Scalars['GatsbyImageData']>;
+  readonly height: Maybe<Scalars['Int']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly mimeType: Scalars['String'];
+  readonly node_locale: Maybe<Scalars['String']>;
+  readonly parent: Maybe<Node>;
+  readonly placeholderUrl: Maybe<Scalars['String']>;
+  readonly publicUrl: Scalars['String'];
+  readonly resize: Maybe<RemoteFileResize>;
+  readonly size: Maybe<Scalars['Int']>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly sys: Maybe<ContentfulAssetSys>;
+  readonly title: Maybe<Scalars['String']>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
+  readonly url: Maybe<Scalars['String']>;
+  readonly width: Maybe<Scalars['Int']>;
+};
+
+
+type ContentfulAsset_createdAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+type ContentfulAsset_gatsbyImageArgs = {
+  aspectRatio: InputMaybe<Scalars['Float']>;
+  backgroundColor: InputMaybe<Scalars['String']>;
+  breakpoints?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
+  cropFocus: InputMaybe<ReadonlyArray<InputMaybe<RemoteFileCropFocus>>>;
+  fit?: InputMaybe<RemoteFileFit>;
+  formats?: InputMaybe<ReadonlyArray<RemoteFileFormat>>;
+  height: InputMaybe<Scalars['Int']>;
+  layout?: InputMaybe<RemoteFileLayout>;
+  outputPixelDensities?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Float']>>>;
+  placeholder?: InputMaybe<RemoteFilePlaceholder>;
+  quality?: InputMaybe<Scalars['Int']>;
+  sizes: InputMaybe<Scalars['String']>;
+  width: InputMaybe<Scalars['Int']>;
+};
+
+
+type ContentfulAsset_gatsbyImageDataArgs = {
+  aspectRatio: InputMaybe<Scalars['Float']>;
+  backgroundColor: InputMaybe<Scalars['String']>;
+  breakpoints: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
+  cornerRadius?: InputMaybe<Scalars['Int']>;
+  cropFocus: InputMaybe<ContentfulImageCropFocus>;
+  formats?: InputMaybe<ReadonlyArray<InputMaybe<GatsbyImageFormat>>>;
+  height: InputMaybe<Scalars['Int']>;
+  jpegProgressive?: InputMaybe<Scalars['Boolean']>;
+  layout: InputMaybe<GatsbyImageLayout>;
+  outputPixelDensities: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Float']>>>;
+  placeholder: InputMaybe<GatsbyImagePlaceholder>;
+  quality: InputMaybe<Scalars['Int']>;
+  resizingBehavior: InputMaybe<ImageResizingBehavior>;
+  sizes: InputMaybe<Scalars['String']>;
+  width: InputMaybe<Scalars['Int']>;
+};
+
+
+type ContentfulAsset_resizeArgs = {
+  aspectRatio: InputMaybe<Scalars['Float']>;
+  cropFocus: InputMaybe<ReadonlyArray<InputMaybe<RemoteFileCropFocus>>>;
+  fit?: InputMaybe<RemoteFileFit>;
+  format?: InputMaybe<RemoteFileFormat>;
+  height: InputMaybe<Scalars['Int']>;
+  quality?: InputMaybe<Scalars['Int']>;
+  width: InputMaybe<Scalars['Int']>;
+};
+
+
+type ContentfulAsset_updatedAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+type ContentfulAssetConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulAssetEdge>;
+  readonly group: ReadonlyArray<ContentfulAssetGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulAsset>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type ContentfulAssetConnection_distinctArgs = {
+  field: ContentfulAssetFieldSelector;
+};
+
+
+type ContentfulAssetConnection_groupArgs = {
+  field: ContentfulAssetFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type ContentfulAssetConnection_maxArgs = {
+  field: ContentfulAssetFieldSelector;
+};
+
+
+type ContentfulAssetConnection_minArgs = {
+  field: ContentfulAssetFieldSelector;
+};
+
+
+type ContentfulAssetConnection_sumArgs = {
+  field: ContentfulAssetFieldSelector;
+};
+
+type ContentfulAssetEdge = {
+  readonly next: Maybe<ContentfulAsset>;
+  readonly node: ContentfulAsset;
+  readonly previous: Maybe<ContentfulAsset>;
+};
+
+type ContentfulAssetFieldSelector = {
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly contentful_id: InputMaybe<FieldSelectorEnum>;
+  readonly createdAt: InputMaybe<FieldSelectorEnum>;
+  readonly description: InputMaybe<FieldSelectorEnum>;
+  readonly file: InputMaybe<ContentfulAssetFileFieldSelector>;
+  readonly filename: InputMaybe<FieldSelectorEnum>;
+  readonly filesize: InputMaybe<FieldSelectorEnum>;
+  readonly gatsbyImage: InputMaybe<FieldSelectorEnum>;
+  readonly gatsbyImageData: InputMaybe<FieldSelectorEnum>;
+  readonly height: InputMaybe<FieldSelectorEnum>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly mimeType: InputMaybe<FieldSelectorEnum>;
+  readonly node_locale: InputMaybe<FieldSelectorEnum>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly placeholderUrl: InputMaybe<FieldSelectorEnum>;
+  readonly publicUrl: InputMaybe<FieldSelectorEnum>;
+  readonly resize: InputMaybe<RemoteFileResizeFieldSelector>;
+  readonly size: InputMaybe<FieldSelectorEnum>;
+  readonly spaceId: InputMaybe<FieldSelectorEnum>;
+  readonly sys: InputMaybe<ContentfulAssetSysFieldSelector>;
+  readonly title: InputMaybe<FieldSelectorEnum>;
+  readonly updatedAt: InputMaybe<FieldSelectorEnum>;
+  readonly url: InputMaybe<FieldSelectorEnum>;
+  readonly width: InputMaybe<FieldSelectorEnum>;
+};
+
+type ContentfulAssetFile = {
+  readonly contentType: Maybe<Scalars['String']>;
+  readonly details: Maybe<ContentfulAssetFileDetails>;
+  readonly fileName: Maybe<Scalars['String']>;
+  readonly url: Maybe<Scalars['String']>;
+};
+
+type ContentfulAssetFileDetails = {
+  readonly image: Maybe<ContentfulAssetFileDetailsImage>;
+  readonly size: Maybe<Scalars['Int']>;
+};
+
+type ContentfulAssetFileDetailsFieldSelector = {
+  readonly image: InputMaybe<ContentfulAssetFileDetailsImageFieldSelector>;
+  readonly size: InputMaybe<FieldSelectorEnum>;
+};
+
+type ContentfulAssetFileDetailsFilterInput = {
+  readonly image: InputMaybe<ContentfulAssetFileDetailsImageFilterInput>;
+  readonly size: InputMaybe<IntQueryOperatorInput>;
+};
+
+type ContentfulAssetFileDetailsImage = {
+  readonly height: Maybe<Scalars['Int']>;
+  readonly width: Maybe<Scalars['Int']>;
+};
+
+type ContentfulAssetFileDetailsImageFieldSelector = {
+  readonly height: InputMaybe<FieldSelectorEnum>;
+  readonly width: InputMaybe<FieldSelectorEnum>;
+};
+
+type ContentfulAssetFileDetailsImageFilterInput = {
+  readonly height: InputMaybe<IntQueryOperatorInput>;
+  readonly width: InputMaybe<IntQueryOperatorInput>;
+};
+
+type ContentfulAssetFileDetailsImageSortInput = {
+  readonly height: InputMaybe<SortOrderEnum>;
+  readonly width: InputMaybe<SortOrderEnum>;
+};
+
+type ContentfulAssetFileDetailsSortInput = {
+  readonly image: InputMaybe<ContentfulAssetFileDetailsImageSortInput>;
+  readonly size: InputMaybe<SortOrderEnum>;
+};
+
+type ContentfulAssetFileFieldSelector = {
+  readonly contentType: InputMaybe<FieldSelectorEnum>;
+  readonly details: InputMaybe<ContentfulAssetFileDetailsFieldSelector>;
+  readonly fileName: InputMaybe<FieldSelectorEnum>;
+  readonly url: InputMaybe<FieldSelectorEnum>;
+};
+
+type ContentfulAssetFileFilterInput = {
+  readonly contentType: InputMaybe<StringQueryOperatorInput>;
+  readonly details: InputMaybe<ContentfulAssetFileDetailsFilterInput>;
+  readonly fileName: InputMaybe<StringQueryOperatorInput>;
+  readonly url: InputMaybe<StringQueryOperatorInput>;
+};
+
+type ContentfulAssetFileSortInput = {
+  readonly contentType: InputMaybe<SortOrderEnum>;
+  readonly details: InputMaybe<ContentfulAssetFileDetailsSortInput>;
+  readonly fileName: InputMaybe<SortOrderEnum>;
+  readonly url: InputMaybe<SortOrderEnum>;
+};
+
+type ContentfulAssetFilterInput = {
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly description: InputMaybe<StringQueryOperatorInput>;
+  readonly file: InputMaybe<ContentfulAssetFileFilterInput>;
+  readonly filename: InputMaybe<StringQueryOperatorInput>;
+  readonly filesize: InputMaybe<IntQueryOperatorInput>;
+  readonly gatsbyImage: InputMaybe<GatsbyImageDataQueryOperatorInput>;
+  readonly gatsbyImageData: InputMaybe<GatsbyImageDataQueryOperatorInput>;
+  readonly height: InputMaybe<IntQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly mimeType: InputMaybe<StringQueryOperatorInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly placeholderUrl: InputMaybe<StringQueryOperatorInput>;
+  readonly publicUrl: InputMaybe<StringQueryOperatorInput>;
+  readonly resize: InputMaybe<RemoteFileResizeFilterInput>;
+  readonly size: InputMaybe<IntQueryOperatorInput>;
+  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
+  readonly sys: InputMaybe<ContentfulAssetSysFilterInput>;
+  readonly title: InputMaybe<StringQueryOperatorInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
+  readonly url: InputMaybe<StringQueryOperatorInput>;
+  readonly width: InputMaybe<IntQueryOperatorInput>;
+};
+
+type ContentfulAssetGroupConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulAssetEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulAssetGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulAsset>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type ContentfulAssetGroupConnection_distinctArgs = {
+  field: ContentfulAssetFieldSelector;
+};
+
+
+type ContentfulAssetGroupConnection_groupArgs = {
+  field: ContentfulAssetFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type ContentfulAssetGroupConnection_maxArgs = {
+  field: ContentfulAssetFieldSelector;
+};
+
+
+type ContentfulAssetGroupConnection_minArgs = {
+  field: ContentfulAssetFieldSelector;
+};
+
+
+type ContentfulAssetGroupConnection_sumArgs = {
+  field: ContentfulAssetFieldSelector;
+};
+
+type ContentfulAssetSortInput = {
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly contentful_id: InputMaybe<SortOrderEnum>;
+  readonly createdAt: InputMaybe<SortOrderEnum>;
+  readonly description: InputMaybe<SortOrderEnum>;
+  readonly file: InputMaybe<ContentfulAssetFileSortInput>;
+  readonly filename: InputMaybe<SortOrderEnum>;
+  readonly filesize: InputMaybe<SortOrderEnum>;
+  readonly gatsbyImage: InputMaybe<SortOrderEnum>;
+  readonly gatsbyImageData: InputMaybe<SortOrderEnum>;
+  readonly height: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly mimeType: InputMaybe<SortOrderEnum>;
+  readonly node_locale: InputMaybe<SortOrderEnum>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly placeholderUrl: InputMaybe<SortOrderEnum>;
+  readonly publicUrl: InputMaybe<SortOrderEnum>;
+  readonly resize: InputMaybe<RemoteFileResizeSortInput>;
+  readonly size: InputMaybe<SortOrderEnum>;
+  readonly spaceId: InputMaybe<SortOrderEnum>;
+  readonly sys: InputMaybe<ContentfulAssetSysSortInput>;
+  readonly title: InputMaybe<SortOrderEnum>;
+  readonly updatedAt: InputMaybe<SortOrderEnum>;
+  readonly url: InputMaybe<SortOrderEnum>;
+  readonly width: InputMaybe<SortOrderEnum>;
+};
+
+type ContentfulAssetSys = {
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly type: Maybe<Scalars['String']>;
+};
+
+type ContentfulAssetSysFieldSelector = {
+  readonly revision: InputMaybe<FieldSelectorEnum>;
+  readonly type: InputMaybe<FieldSelectorEnum>;
+};
+
+type ContentfulAssetSysFilterInput = {
+  readonly revision: InputMaybe<IntQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
+};
+
+type ContentfulAssetSysSortInput = {
+  readonly revision: InputMaybe<SortOrderEnum>;
+  readonly type: InputMaybe<SortOrderEnum>;
+};
+
+type ContentfulContentType = Node & {
+  readonly children: ReadonlyArray<Node>;
+  readonly description: Maybe<Scalars['String']>;
+  readonly displayField: Maybe<Scalars['String']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly name: Maybe<Scalars['String']>;
+  readonly parent: Maybe<Node>;
+  readonly sys: Maybe<ContentfulContentTypeSys>;
+};
+
+type ContentfulContentTypeConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulContentTypeEdge>;
+  readonly group: ReadonlyArray<ContentfulContentTypeGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulContentType>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type ContentfulContentTypeConnection_distinctArgs = {
+  field: ContentfulContentTypeFieldSelector;
+};
+
+
+type ContentfulContentTypeConnection_groupArgs = {
+  field: ContentfulContentTypeFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type ContentfulContentTypeConnection_maxArgs = {
+  field: ContentfulContentTypeFieldSelector;
+};
+
+
+type ContentfulContentTypeConnection_minArgs = {
+  field: ContentfulContentTypeFieldSelector;
+};
+
+
+type ContentfulContentTypeConnection_sumArgs = {
+  field: ContentfulContentTypeFieldSelector;
+};
+
+type ContentfulContentTypeEdge = {
+  readonly next: Maybe<ContentfulContentType>;
+  readonly node: ContentfulContentType;
+  readonly previous: Maybe<ContentfulContentType>;
+};
+
+type ContentfulContentTypeFieldSelector = {
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly description: InputMaybe<FieldSelectorEnum>;
+  readonly displayField: InputMaybe<FieldSelectorEnum>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly name: InputMaybe<FieldSelectorEnum>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly sys: InputMaybe<ContentfulContentTypeSysFieldSelector>;
+};
+
+type ContentfulContentTypeFilterInput = {
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly description: InputMaybe<StringQueryOperatorInput>;
+  readonly displayField: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly sys: InputMaybe<ContentfulContentTypeSysFilterInput>;
+};
+
+type ContentfulContentTypeGroupConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulContentTypeEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulContentTypeGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulContentType>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type ContentfulContentTypeGroupConnection_distinctArgs = {
+  field: ContentfulContentTypeFieldSelector;
+};
+
+
+type ContentfulContentTypeGroupConnection_groupArgs = {
+  field: ContentfulContentTypeFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type ContentfulContentTypeGroupConnection_maxArgs = {
+  field: ContentfulContentTypeFieldSelector;
+};
+
+
+type ContentfulContentTypeGroupConnection_minArgs = {
+  field: ContentfulContentTypeFieldSelector;
+};
+
+
+type ContentfulContentTypeGroupConnection_sumArgs = {
+  field: ContentfulContentTypeFieldSelector;
+};
+
+type ContentfulContentTypeSortInput = {
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly description: InputMaybe<SortOrderEnum>;
+  readonly displayField: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly name: InputMaybe<SortOrderEnum>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly sys: InputMaybe<ContentfulContentTypeSysSortInput>;
+};
+
+type ContentfulContentTypeSys = {
+  readonly type: Maybe<Scalars['String']>;
+};
+
+type ContentfulContentTypeSysFieldSelector = {
+  readonly type: InputMaybe<FieldSelectorEnum>;
+};
+
+type ContentfulContentTypeSysFilterInput = {
+  readonly type: InputMaybe<StringQueryOperatorInput>;
+};
+
+type ContentfulContentTypeSysSortInput = {
+  readonly type: InputMaybe<SortOrderEnum>;
+};
+
+type ContentfulEntry = {
+  readonly children: ReadonlyArray<Node>;
+  readonly contentful_id: Scalars['String'];
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly node_locale: Scalars['String'];
+  readonly parent: Maybe<Node>;
+};
+
+type ContentfulEntryConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulEntryEdge>;
+  readonly group: ReadonlyArray<ContentfulEntryGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulEntry>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type ContentfulEntryConnection_distinctArgs = {
+  field: ContentfulEntryFieldSelector;
+};
+
+
+type ContentfulEntryConnection_groupArgs = {
+  field: ContentfulEntryFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type ContentfulEntryConnection_maxArgs = {
+  field: ContentfulEntryFieldSelector;
+};
+
+
+type ContentfulEntryConnection_minArgs = {
+  field: ContentfulEntryFieldSelector;
+};
+
+
+type ContentfulEntryConnection_sumArgs = {
+  field: ContentfulEntryFieldSelector;
+};
+
+type ContentfulEntryEdge = {
+  readonly next: Maybe<ContentfulEntry>;
+  readonly node: ContentfulEntry;
+  readonly previous: Maybe<ContentfulEntry>;
+};
+
+type ContentfulEntryFieldSelector = {
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly contentful_id: InputMaybe<FieldSelectorEnum>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly node_locale: InputMaybe<FieldSelectorEnum>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+};
+
+type ContentfulEntryFilterInput = {
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+};
+
+type ContentfulEntryGroupConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulEntryEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulEntryGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulEntry>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type ContentfulEntryGroupConnection_distinctArgs = {
+  field: ContentfulEntryFieldSelector;
+};
+
+
+type ContentfulEntryGroupConnection_groupArgs = {
+  field: ContentfulEntryFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type ContentfulEntryGroupConnection_maxArgs = {
+  field: ContentfulEntryFieldSelector;
+};
+
+
+type ContentfulEntryGroupConnection_minArgs = {
+  field: ContentfulEntryFieldSelector;
+};
+
+
+type ContentfulEntryGroupConnection_sumArgs = {
+  field: ContentfulEntryFieldSelector;
+};
+
+type ContentfulEntrySortInput = {
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly contentful_id: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly node_locale: InputMaybe<SortOrderEnum>;
+  readonly parent: InputMaybe<NodeSortInput>;
+};
+
+type ContentfulImageCropFocus =
+  | 'bottom'
+  | 'bottom_right'
+  | 'bottom_left'
+  | 'center'
+  | 'face'
+  | 'faces'
+  | 'left'
+  | 'right'
+  | 'top'
+  | 'top_left'
+  | 'top_right';
+
+type ContentfulProduct = ContentfulEntry & ContentfulReference & Node & {
+  readonly children: ReadonlyArray<Node>;
+  readonly contentful_id: Scalars['String'];
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly gatsbyPath: Maybe<Scalars['String']>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly name: Maybe<Scalars['String']>;
+  readonly node_locale: Scalars['String'];
+  readonly parent: Maybe<Node>;
+  readonly preview: Maybe<ContentfulAsset>;
+  readonly price: Maybe<Scalars['Float']>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly sys: Maybe<ContentfulProductSys>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
+};
+
+
+type ContentfulProduct_createdAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+type ContentfulProduct_gatsbyPathArgs = {
+  filePath: InputMaybe<Scalars['String']>;
+};
+
+
+type ContentfulProduct_updatedAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+type ContentfulProductConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulProductEdge>;
+  readonly group: ReadonlyArray<ContentfulProductGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulProduct>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type ContentfulProductConnection_distinctArgs = {
+  field: ContentfulProductFieldSelector;
+};
+
+
+type ContentfulProductConnection_groupArgs = {
+  field: ContentfulProductFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type ContentfulProductConnection_maxArgs = {
+  field: ContentfulProductFieldSelector;
+};
+
+
+type ContentfulProductConnection_minArgs = {
+  field: ContentfulProductFieldSelector;
+};
+
+
+type ContentfulProductConnection_sumArgs = {
+  field: ContentfulProductFieldSelector;
+};
+
+type ContentfulProductEdge = {
+  readonly next: Maybe<ContentfulProduct>;
+  readonly node: ContentfulProduct;
+  readonly previous: Maybe<ContentfulProduct>;
+};
+
+type ContentfulProductFieldSelector = {
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly contentful_id: InputMaybe<FieldSelectorEnum>;
+  readonly createdAt: InputMaybe<FieldSelectorEnum>;
+  readonly gatsbyPath: InputMaybe<FieldSelectorEnum>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly name: InputMaybe<FieldSelectorEnum>;
+  readonly node_locale: InputMaybe<FieldSelectorEnum>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly preview: InputMaybe<ContentfulAssetFieldSelector>;
+  readonly price: InputMaybe<FieldSelectorEnum>;
+  readonly spaceId: InputMaybe<FieldSelectorEnum>;
+  readonly sys: InputMaybe<ContentfulProductSysFieldSelector>;
+  readonly updatedAt: InputMaybe<FieldSelectorEnum>;
+};
+
+type ContentfulProductFilterInput = {
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly gatsbyPath: InputMaybe<StringQueryOperatorInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly name: InputMaybe<StringQueryOperatorInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly preview: InputMaybe<ContentfulAssetFilterInput>;
+  readonly price: InputMaybe<FloatQueryOperatorInput>;
+  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
+  readonly sys: InputMaybe<ContentfulProductSysFilterInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
+};
+
+type ContentfulProductGroupConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulProductEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulProductGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulProduct>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type ContentfulProductGroupConnection_distinctArgs = {
+  field: ContentfulProductFieldSelector;
+};
+
+
+type ContentfulProductGroupConnection_groupArgs = {
+  field: ContentfulProductFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type ContentfulProductGroupConnection_maxArgs = {
+  field: ContentfulProductFieldSelector;
+};
+
+
+type ContentfulProductGroupConnection_minArgs = {
+  field: ContentfulProductFieldSelector;
+};
+
+
+type ContentfulProductGroupConnection_sumArgs = {
+  field: ContentfulProductFieldSelector;
+};
+
+type ContentfulProductSortInput = {
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly contentful_id: InputMaybe<SortOrderEnum>;
+  readonly createdAt: InputMaybe<SortOrderEnum>;
+  readonly gatsbyPath: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly name: InputMaybe<SortOrderEnum>;
+  readonly node_locale: InputMaybe<SortOrderEnum>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly preview: InputMaybe<ContentfulAssetSortInput>;
+  readonly price: InputMaybe<SortOrderEnum>;
+  readonly spaceId: InputMaybe<SortOrderEnum>;
+  readonly sys: InputMaybe<ContentfulProductSysSortInput>;
+  readonly updatedAt: InputMaybe<SortOrderEnum>;
+};
+
+type ContentfulProductSys = {
+  readonly contentType: Maybe<ContentfulProductSysContentType>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly type: Maybe<Scalars['String']>;
+};
+
+type ContentfulProductSysContentType = {
+  readonly sys: Maybe<ContentfulProductSysContentTypeSys>;
+};
+
+type ContentfulProductSysContentTypeFieldSelector = {
+  readonly sys: InputMaybe<ContentfulProductSysContentTypeSysFieldSelector>;
+};
+
+type ContentfulProductSysContentTypeFilterInput = {
+  readonly sys: InputMaybe<ContentfulProductSysContentTypeSysFilterInput>;
+};
+
+type ContentfulProductSysContentTypeSortInput = {
+  readonly sys: InputMaybe<ContentfulProductSysContentTypeSysSortInput>;
+};
+
+type ContentfulProductSysContentTypeSys = {
+  readonly id: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
+};
+
+type ContentfulProductSysContentTypeSysFieldSelector = {
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly linkType: InputMaybe<FieldSelectorEnum>;
+  readonly type: InputMaybe<FieldSelectorEnum>;
+};
+
+type ContentfulProductSysContentTypeSysFilterInput = {
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly linkType: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
+};
+
+type ContentfulProductSysContentTypeSysSortInput = {
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly linkType: InputMaybe<SortOrderEnum>;
+  readonly type: InputMaybe<SortOrderEnum>;
+};
+
+type ContentfulProductSysFieldSelector = {
+  readonly contentType: InputMaybe<ContentfulProductSysContentTypeFieldSelector>;
+  readonly revision: InputMaybe<FieldSelectorEnum>;
+  readonly type: InputMaybe<FieldSelectorEnum>;
+};
+
+type ContentfulProductSysFilterInput = {
+  readonly contentType: InputMaybe<ContentfulProductSysContentTypeFilterInput>;
+  readonly revision: InputMaybe<IntQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
+};
+
+type ContentfulProductSysSortInput = {
+  readonly contentType: InputMaybe<ContentfulProductSysContentTypeSortInput>;
+  readonly revision: InputMaybe<SortOrderEnum>;
+  readonly type: InputMaybe<SortOrderEnum>;
+};
+
+type ContentfulReference = {
+  readonly contentful_id: Scalars['String'];
+  readonly id: Scalars['ID'];
+};
+
 type DateQueryOperatorInput = {
   readonly eq: InputMaybe<Scalars['Date']>;
   readonly gt: InputMaybe<Scalars['Date']>;
@@ -768,6 +1643,19 @@ type ImagePlaceholder =
   | 'dominantColor'
   | 'none'
   | 'tracedSVG';
+
+type ImageResizingBehavior =
+  /** Crop a part of the original image to match the specified size. */
+  | 'crop'
+  /** Crop the image to the specified dimensions, if the original image is smaller than these dimensions, then the image will be upscaled. */
+  | 'fill'
+  | ''
+  /** Same as the default resizing, but adds padding so that the generated image has the specified dimensions. */
+  | 'pad'
+  /** Scale the image regardless of the original aspect ratio. */
+  | 'scale'
+  /** When used in association with the f parameter below, creates a thumbnail from the image based on a focus area. */
+  | 'thumb';
 
 type ImageSharp = Node & {
   readonly children: ReadonlyArray<Node>;
@@ -1511,6 +2399,10 @@ type PotraceTurnPolicy =
   | 'white';
 
 type Query = {
+  readonly allContentfulAsset: ContentfulAssetConnection;
+  readonly allContentfulContentType: ContentfulContentTypeConnection;
+  readonly allContentfulEntry: ContentfulEntryConnection;
+  readonly allContentfulProduct: ContentfulProductConnection;
   readonly allDirectory: DirectoryConnection;
   readonly allFile: FileConnection;
   readonly allImageSharp: ImageSharpConnection;
@@ -1520,6 +2412,10 @@ type Query = {
   readonly allSiteFunction: SiteFunctionConnection;
   readonly allSitePage: SitePageConnection;
   readonly allSitePlugin: SitePluginConnection;
+  readonly contentfulAsset: Maybe<ContentfulAsset>;
+  readonly contentfulContentType: Maybe<ContentfulContentType>;
+  readonly contentfulEntry: Maybe<ContentfulEntry>;
+  readonly contentfulProduct: Maybe<ContentfulProduct>;
   readonly directory: Maybe<Directory>;
   readonly file: Maybe<File>;
   readonly imageSharp: Maybe<ImageSharp>;
@@ -1529,6 +2425,38 @@ type Query = {
   readonly siteFunction: Maybe<SiteFunction>;
   readonly sitePage: Maybe<SitePage>;
   readonly sitePlugin: Maybe<SitePlugin>;
+};
+
+
+type Query_allContentfulAssetArgs = {
+  filter: InputMaybe<ContentfulAssetFilterInput>;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<ContentfulAssetSortInput>>>;
+};
+
+
+type Query_allContentfulContentTypeArgs = {
+  filter: InputMaybe<ContentfulContentTypeFilterInput>;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<ContentfulContentTypeSortInput>>>;
+};
+
+
+type Query_allContentfulEntryArgs = {
+  filter: InputMaybe<ContentfulEntryFilterInput>;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<ContentfulEntrySortInput>>>;
+};
+
+
+type Query_allContentfulProductArgs = {
+  filter: InputMaybe<ContentfulProductFilterInput>;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<ContentfulProductSortInput>>>;
 };
 
 
@@ -1601,6 +2529,75 @@ type Query_allSitePluginArgs = {
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
   sort: InputMaybe<ReadonlyArray<InputMaybe<SitePluginSortInput>>>;
+};
+
+
+type Query_contentfulAssetArgs = {
+  children: InputMaybe<NodeFilterListInput>;
+  contentful_id: InputMaybe<StringQueryOperatorInput>;
+  createdAt: InputMaybe<DateQueryOperatorInput>;
+  description: InputMaybe<StringQueryOperatorInput>;
+  file: InputMaybe<ContentfulAssetFileFilterInput>;
+  filename: InputMaybe<StringQueryOperatorInput>;
+  filesize: InputMaybe<IntQueryOperatorInput>;
+  gatsbyImage: InputMaybe<GatsbyImageDataQueryOperatorInput>;
+  gatsbyImageData: InputMaybe<GatsbyImageDataQueryOperatorInput>;
+  height: InputMaybe<IntQueryOperatorInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  mimeType: InputMaybe<StringQueryOperatorInput>;
+  node_locale: InputMaybe<StringQueryOperatorInput>;
+  parent: InputMaybe<NodeFilterInput>;
+  placeholderUrl: InputMaybe<StringQueryOperatorInput>;
+  publicUrl: InputMaybe<StringQueryOperatorInput>;
+  resize: InputMaybe<RemoteFileResizeFilterInput>;
+  size: InputMaybe<IntQueryOperatorInput>;
+  spaceId: InputMaybe<StringQueryOperatorInput>;
+  sys: InputMaybe<ContentfulAssetSysFilterInput>;
+  title: InputMaybe<StringQueryOperatorInput>;
+  updatedAt: InputMaybe<DateQueryOperatorInput>;
+  url: InputMaybe<StringQueryOperatorInput>;
+  width: InputMaybe<IntQueryOperatorInput>;
+};
+
+
+type Query_contentfulContentTypeArgs = {
+  children: InputMaybe<NodeFilterListInput>;
+  description: InputMaybe<StringQueryOperatorInput>;
+  displayField: InputMaybe<StringQueryOperatorInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  name: InputMaybe<StringQueryOperatorInput>;
+  parent: InputMaybe<NodeFilterInput>;
+  sys: InputMaybe<ContentfulContentTypeSysFilterInput>;
+};
+
+
+type Query_contentfulEntryArgs = {
+  children: InputMaybe<NodeFilterListInput>;
+  contentful_id: InputMaybe<StringQueryOperatorInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  node_locale: InputMaybe<StringQueryOperatorInput>;
+  parent: InputMaybe<NodeFilterInput>;
+};
+
+
+type Query_contentfulProductArgs = {
+  children: InputMaybe<NodeFilterListInput>;
+  contentful_id: InputMaybe<StringQueryOperatorInput>;
+  createdAt: InputMaybe<DateQueryOperatorInput>;
+  gatsbyPath: InputMaybe<StringQueryOperatorInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  name: InputMaybe<StringQueryOperatorInput>;
+  node_locale: InputMaybe<StringQueryOperatorInput>;
+  parent: InputMaybe<NodeFilterInput>;
+  preview: InputMaybe<ContentfulAssetFilterInput>;
+  price: InputMaybe<FloatQueryOperatorInput>;
+  spaceId: InputMaybe<StringQueryOperatorInput>;
+  sys: InputMaybe<ContentfulProductSysFilterInput>;
+  updatedAt: InputMaybe<DateQueryOperatorInput>;
 };
 
 
@@ -1785,6 +2782,108 @@ type Query_sitePluginArgs = {
   resolve: InputMaybe<StringQueryOperatorInput>;
   ssrAPIs: InputMaybe<StringQueryOperatorInput>;
   version: InputMaybe<StringQueryOperatorInput>;
+};
+
+/** Remote Interface */
+type RemoteFile = {
+  readonly filename: Scalars['String'];
+  readonly filesize: Maybe<Scalars['Int']>;
+  /** Data used in the <GatsbyImage /> component. See https://gatsby.dev/img for more info. */
+  readonly gatsbyImage: Maybe<Scalars['GatsbyImageData']>;
+  readonly height: Maybe<Scalars['Int']>;
+  readonly id: Scalars['ID'];
+  readonly mimeType: Scalars['String'];
+  readonly publicUrl: Scalars['String'];
+  readonly resize: Maybe<RemoteFileResize>;
+  readonly width: Maybe<Scalars['Int']>;
+};
+
+
+/** Remote Interface */
+type RemoteFile_gatsbyImageArgs = {
+  aspectRatio: InputMaybe<Scalars['Float']>;
+  backgroundColor: InputMaybe<Scalars['String']>;
+  breakpoints?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Int']>>>;
+  cropFocus: InputMaybe<ReadonlyArray<InputMaybe<RemoteFileCropFocus>>>;
+  fit?: InputMaybe<RemoteFileFit>;
+  formats?: InputMaybe<ReadonlyArray<RemoteFileFormat>>;
+  height: InputMaybe<Scalars['Int']>;
+  layout?: InputMaybe<RemoteFileLayout>;
+  outputPixelDensities?: InputMaybe<ReadonlyArray<InputMaybe<Scalars['Float']>>>;
+  placeholder?: InputMaybe<RemoteFilePlaceholder>;
+  quality?: InputMaybe<Scalars['Int']>;
+  sizes: InputMaybe<Scalars['String']>;
+  width: InputMaybe<Scalars['Int']>;
+};
+
+
+/** Remote Interface */
+type RemoteFile_resizeArgs = {
+  aspectRatio: InputMaybe<Scalars['Float']>;
+  cropFocus: InputMaybe<ReadonlyArray<InputMaybe<RemoteFileCropFocus>>>;
+  fit?: InputMaybe<RemoteFileFit>;
+  format?: InputMaybe<RemoteFileFormat>;
+  height: InputMaybe<Scalars['Int']>;
+  quality?: InputMaybe<Scalars['Int']>;
+  width: InputMaybe<Scalars['Int']>;
+};
+
+type RemoteFileCropFocus =
+  | 'bottom'
+  | 'center'
+  | 'edges'
+  | 'entropy'
+  | 'faces'
+  | 'left'
+  | 'right'
+  | 'top';
+
+type RemoteFileFit =
+  | 'contain'
+  | 'cover'
+  | 'fill'
+  | 'outside';
+
+type RemoteFileFormat =
+  | 'auto'
+  | 'avif'
+  | 'jpg'
+  | 'png'
+  | 'webp';
+
+type RemoteFileLayout =
+  | 'constrained'
+  | 'fixed'
+  | 'fullWidth';
+
+type RemoteFilePlaceholder =
+  | 'blurred'
+  | 'dominantColor'
+  | 'none'
+  | 'tracedSVG';
+
+type RemoteFileResize = {
+  readonly height: Maybe<Scalars['Int']>;
+  readonly src: Maybe<Scalars['String']>;
+  readonly width: Maybe<Scalars['Int']>;
+};
+
+type RemoteFileResizeFieldSelector = {
+  readonly height: InputMaybe<FieldSelectorEnum>;
+  readonly src: InputMaybe<FieldSelectorEnum>;
+  readonly width: InputMaybe<FieldSelectorEnum>;
+};
+
+type RemoteFileResizeFilterInput = {
+  readonly height: InputMaybe<IntQueryOperatorInput>;
+  readonly src: InputMaybe<StringQueryOperatorInput>;
+  readonly width: InputMaybe<IntQueryOperatorInput>;
+};
+
+type RemoteFileResizeSortInput = {
+  readonly height: InputMaybe<SortOrderEnum>;
+  readonly src: InputMaybe<SortOrderEnum>;
+  readonly width: InputMaybe<SortOrderEnum>;
 };
 
 type Site = Node & {
@@ -2616,6 +3715,11 @@ type PostDetailQueryVariables = Exact<{
 
 
 type PostDetailQuery = { readonly mdx: { readonly frontmatter: { readonly author: string | null, readonly category: string | null, readonly date: string | null, readonly title: string | null, readonly slug: string | null, readonly headerImage: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null } | null };
+
+type ProductsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type ProductsQuery = { readonly allContentfulProduct: { readonly nodes: ReadonlyArray<{ readonly name: string | null, readonly price: number | null, readonly preview: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData | null } | null }> } };
 
 type SeoDataQueryVariables = Exact<{ [key: string]: never; }>;
 
