@@ -414,7 +414,6 @@ type File = Node & {
   readonly size: Scalars['Int'];
   readonly sourceInstanceName: Scalars['String'];
   readonly uid: Scalars['Int'];
-  readonly url: Maybe<Scalars['String']>;
 };
 
 
@@ -561,7 +560,6 @@ type FileFieldSelector = {
   readonly size: InputMaybe<FieldSelectorEnum>;
   readonly sourceInstanceName: InputMaybe<FieldSelectorEnum>;
   readonly uid: InputMaybe<FieldSelectorEnum>;
-  readonly url: InputMaybe<FieldSelectorEnum>;
 };
 
 type FileFilterInput = {
@@ -607,7 +605,6 @@ type FileFilterInput = {
   readonly size: InputMaybe<IntQueryOperatorInput>;
   readonly sourceInstanceName: InputMaybe<StringQueryOperatorInput>;
   readonly uid: InputMaybe<IntQueryOperatorInput>;
-  readonly url: InputMaybe<StringQueryOperatorInput>;
 };
 
 type FileGroupConnection = {
@@ -694,7 +691,6 @@ type FileSortInput = {
   readonly size: InputMaybe<SortOrderEnum>;
   readonly sourceInstanceName: InputMaybe<SortOrderEnum>;
   readonly uid: InputMaybe<SortOrderEnum>;
-  readonly url: InputMaybe<SortOrderEnum>;
 };
 
 type FloatQueryOperatorInput = {
@@ -1353,6 +1349,7 @@ type MdxFrontmatter = {
   readonly author: Maybe<Scalars['String']>;
   readonly category: Maybe<Scalars['String']>;
   readonly date: Maybe<Scalars['Date']>;
+  readonly headerImage: Maybe<File>;
   readonly slug: Maybe<Scalars['String']>;
   readonly title: Maybe<Scalars['String']>;
 };
@@ -1369,6 +1366,7 @@ type MdxFrontmatterFieldSelector = {
   readonly author: InputMaybe<FieldSelectorEnum>;
   readonly category: InputMaybe<FieldSelectorEnum>;
   readonly date: InputMaybe<FieldSelectorEnum>;
+  readonly headerImage: InputMaybe<FileFieldSelector>;
   readonly slug: InputMaybe<FieldSelectorEnum>;
   readonly title: InputMaybe<FieldSelectorEnum>;
 };
@@ -1377,6 +1375,7 @@ type MdxFrontmatterFilterInput = {
   readonly author: InputMaybe<StringQueryOperatorInput>;
   readonly category: InputMaybe<StringQueryOperatorInput>;
   readonly date: InputMaybe<DateQueryOperatorInput>;
+  readonly headerImage: InputMaybe<FileFilterInput>;
   readonly slug: InputMaybe<StringQueryOperatorInput>;
   readonly title: InputMaybe<StringQueryOperatorInput>;
 };
@@ -1385,6 +1384,7 @@ type MdxFrontmatterSortInput = {
   readonly author: InputMaybe<SortOrderEnum>;
   readonly category: InputMaybe<SortOrderEnum>;
   readonly date: InputMaybe<SortOrderEnum>;
+  readonly headerImage: InputMaybe<FileSortInput>;
   readonly slug: InputMaybe<SortOrderEnum>;
   readonly title: InputMaybe<SortOrderEnum>;
 };
@@ -1686,7 +1686,6 @@ type Query_fileArgs = {
   size: InputMaybe<IntQueryOperatorInput>;
   sourceInstanceName: InputMaybe<StringQueryOperatorInput>;
   uid: InputMaybe<IntQueryOperatorInput>;
-  url: InputMaybe<StringQueryOperatorInput>;
 };
 
 
@@ -2616,7 +2615,7 @@ type PostDetailQueryVariables = Exact<{
 }>;
 
 
-type PostDetailQuery = { readonly mdx: { readonly frontmatter: { readonly author: string | null, readonly category: string | null, readonly date: string | null, readonly title: string | null, readonly slug: string | null } | null } | null };
+type PostDetailQuery = { readonly mdx: { readonly frontmatter: { readonly author: string | null, readonly category: string | null, readonly date: string | null, readonly title: string | null, readonly slug: string | null, readonly headerImage: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null } | null };
 
 type SeoDataQueryVariables = Exact<{ [key: string]: never; }>;
 
